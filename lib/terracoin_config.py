@@ -34,7 +34,7 @@ class TerracoinConfig():
         creds = {key: value for (key, value) in match}
 
         # standard Terracoin defaults...
-        default_port = 9998 if (network == 'mainnet') else 19998
+        default_port = 13333 if (network == 'mainnet') else 18321
 
         # use default port for network if not specified in terracoin.conf
         if not ('port' in creds):
