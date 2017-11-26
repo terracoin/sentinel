@@ -1,9 +1,9 @@
 #!/bin/bash
 set -evx
 
-mkdir ~/.dashcore
+mkdir ~/.terracoincore
 
 # safety check
-if [ ! -f ~/.dashcore/.dash.conf ]; then
-  cp share/dash.conf.example ~/.dashcore/dash.conf
+if [ ! -f ~/.terracoincore/.terracoin.conf ]; then
+  cp share/terracoin.conf.example ~/.terracoincore/terracoin.conf
 fi
