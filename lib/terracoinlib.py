@@ -19,7 +19,7 @@ def is_valid_terracoin_address(address, network='mainnet'):
     # 4 checksum bytes are appended so the total number of
     # base58 encoded bytes should be 25.  This means the number of characters
     # in the encoding should be about 34 ( 25 * log2( 256 ) / log2( 58 ) ).
-    terracoin_version = 140 if network == 'testnet' else 76
+    terracoin_version = 111 if network == 'testnet' else 0
 
     # Check length (This is important because the base58 library has problems
     # with long addresses (which are invalid anyway).
@@ -304,4 +304,4 @@ def blocks_to_seconds(blocks):
     Return the estimated number of seconds which will transpire for a given
     number of blocks.
     """
-    return blocks * 2.62 * 60
+    return blocks * 2.12 * 60
