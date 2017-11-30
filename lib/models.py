@@ -285,7 +285,7 @@ class Proposal(GovernanceClass, BaseModel):
                 return False
 
             # proposal name is normalized (something like "[a-zA-Z0-9-_]+")
-            if not re.match(r'^[-_a-zA-Z0-9]+$', self.name):
+            if not re.match(r'^[-_a-zA-Z0-9 ]+$', self.name):
                 printdbg("\tInvalid Proposal name [%s] (does not match regex), returning False" % self.name)
                 return False
 
