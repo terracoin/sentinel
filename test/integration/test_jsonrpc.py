@@ -16,7 +16,8 @@ def test_terracoind():
     config_text = TerracoinConfig.slurp_config_file(config.terracoin_conf)
     network = 'mainnet'
     is_testnet = False
-    genesis_hash = u'00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'
+    #genesis_hash = u'00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'
+    genesis_hash = u'00000000804bbc6a621a9dbb564ce469f492e1ccf2d70f8a6b241e26a277afa2'
     for line in config_text.split("\n"):
         if line.startswith('testnet=1'):
             network = 'testnet'
