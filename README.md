@@ -23,9 +23,9 @@ Update system packages and ensure virtualenv and git are installed:
     $ sudo apt-get update
     $ sudo apt-get -y install python-virtualenv git
 
-Make sure the local Terracoin daemon running is at least version 12.1 (120100)
+Make sure the local Terracoin daemon running is at least version 12.1 (120105)
 
-    $ terracoin-cli getinfo | grep version
+    $ ./terracoin-cli getinfo | grep version
 
 ### 2. Install Sentinel
 
