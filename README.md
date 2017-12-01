@@ -18,10 +18,10 @@ Make sure Python version 2.7.x or above is installed:
 
     python --version
 
-Update system packages and ensure virtualenv is installed:
+Update system packages and ensure virtualenv and git are installed:
 
     $ sudo apt-get update
-    $ sudo apt-get -y install python-virtualenv
+    $ sudo apt-get -y install python-virtualenv git
 
 Make sure the local Terracoin daemon running is at least version 12.1 (120100)
 
@@ -43,7 +43,7 @@ Set up a crontab entry to call Sentinel every minute:
 
 In the crontab editor, add the lines below, replacing '/home/YOURUSERNAME/sentinel' to the path where you cloned sentinel to:
 
-    * * * * * cd /home/YOURUSERNAME/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1
+    * * * * * cd /home/YOURUSERNAME/sentinel && SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel.log
 
 ### 4. Test the Configuration
 
