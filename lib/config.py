@@ -16,7 +16,10 @@ sentinel_version = "1.1.0"
 def get_terracoin_conf():
     home = os.environ.get('HOME')
 
-    terracoin_conf = os.path.join(home, ".terracoincore/terracoin.conf")
+    terracoin_conf = "/etc/terracoincore/terracoin.conf"
+    if ( not os.path.isfile(terracoin_conf) ):
+        terracoin_conf = os.path.join(home, ".terracoincore/terracoin.conf")
+
     if sys.platform == 'darwin':
         terracoin_conf = os.path.join(home, "Library/Application Support/TerracoinCore/terracoin.conf")
 

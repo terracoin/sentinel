@@ -59,7 +59,7 @@ def test_get_rpc_creds():
         assert key in creds
     assert creds.get('user') == 'terracoinrpc'
     assert creds.get('password') == 'EwJeV3fZTyTVozdECF627BkBMnNDwQaVLakG3A4wXYyk'
-    assert creds.get('port') == 19998
+    assert creds.get('port') == 18332
 
 
 # ensure terracoin network (mainnet, testnet) matches that specified in config
