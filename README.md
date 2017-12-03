@@ -4,11 +4,11 @@ An all-powerful toolset for Terracoin.
 
 [![Build Status](https://travis-ci.org/terracoin/sentinel.svg?branch=master)](https://travis-ci.org/terracoin/sentinel)
 
-Sentinel is an autonomous agent for persisting, processing and automating Terracoin V12.1 governance objects and tasks, and for expanded functions in the upcoming Terracoin V13 release (Evolution).
+Sentinel is an autonomous agent for persisting, processing and automating Terracoin V12.1.5 governance objects and tasks.
 
-Sentinel is implemented as a Python application that binds to a local version 12.1 terracoind instance on each Terracoin V12.1 Masternode.
+Sentinel is implemented as a Python application that binds to a local version 12.1.5 terracoind instance on each Terracoin V12.1.5 Masternode.
 
-This guide covers installing Sentinel onto an existing 12.1 Masternode in Ubuntu 14.04 / 16.04.
+This guide covers installing Sentinel onto an existing 12.1.5 Terracoin masternode in Ubuntu 14.04 / 16.04.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Update system packages and ensure virtualenv and git are installed:
     $ sudo apt-get update
     $ sudo apt-get -y install python-virtualenv git
 
-Make sure the local Terracoin daemon running is at least version 12.1 (120105)
+Make sure the local Terracoin daemon running is at least version 12.1.5 (120105)
 
     $ ./terracoin-cli getinfo | grep version
 
@@ -41,17 +41,23 @@ Set up a crontab entry to call Sentinel every minute:
 
     $ crontab -e
 
-In the crontab editor, add the lines below, replacing '/home/YOURUSERNAME/sentinel' to the path where you cloned sentinel to:
+In the crontab editor, add the line below, replacing '/home/YOURUSERNAME/sentinel' to the path where you cloned sentinel to.
 
     * * * * * cd /home/YOURUSERNAME/sentinel && SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel.log
+    
+If you followed a guide where it had you install Terracoin to the root directory your path will be:
+
+    * * * * * cd /root/sentinel && SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel.log
 
 ### 4. Test the Configuration
 
-Test the config by runnings all tests from the sentinel folder you cloned into
+Test the config by runnings the tests from the sentinel folder you cloned into:
 
     $ ./venv/bin/py.test ./test
 
-With all tests passing and crontab setup, Sentinel will stay in sync with terracoind and the installation is complete
+3 of the 20 tests will fail.  We still need to update the test data.  At this point is more important to get everyone running Sentinel.  The test data will be updated in the future.
+
+Once 3 of the 20 tests have passed, Sentinel will stay in sync with terracoind and the installation is complete.
 
 ## Configuration
 
@@ -65,6 +71,10 @@ To view debug output, set the `SENTINEL_DEBUG` environment variable to anything 
 
     $ SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py
 
+To view the debug output in real time enter:
+
+    $ tail -f sentinel.log
+   
 ## Contributing
 
 Please follow the [TerracoinCore guidelines for contributing](https://github.com/terracoin/terracoin/blob/v0.12.1.x/CONTRIBUTING.md).
