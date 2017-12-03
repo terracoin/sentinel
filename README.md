@@ -32,7 +32,7 @@ Make sure the local Terracoin daemon running is at least version 12.1.5 (120105)
 Clone the Sentinel repo and install Python dependencies.
 
     $ git clone https://github.com/terracoin/sentinel.git && cd sentinel
-    $ virtualenv ./venv
+    $ virtualenv ./venv (your VPS may not come with virtualenv to install type: apt install virtualenv)
     $ ./venv/bin/pip install -r requirements.txt
 
 ### 3. Set up Cron
