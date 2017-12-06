@@ -47,7 +47,7 @@ In the crontab editor, add the line below, replacing '/home/YOURUSERNAME/sentine
     
 If you followed a guide where it had you install Terracoin to the root directory your path will be:
 
-    * * * * * cd /root/sentinel && SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel.log
+    * * * * * cd /root/sentinel && SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py >> sentinel.log 2>&1
 
 ### 4. Test the Configuration
 
