@@ -146,14 +146,7 @@ class GovernanceObject(BaseModel):
             newdikt = subdikt.copy()
             newdikt['object_hash'] = object_hash
             obj_is_invalid = False
-            if obj_type == 'watchdogs':
-                if subclass(**newdikt).is_valid(terracoind) is False:
-                    obj_is_invalid = True
-            else:
-                if subclass(**newdikt).is_valid() is False:
-                    obj_is_invalid = True
-
-            if obj_is_invalid:
+            if subclass(**newdikt).is_valid(terracoind) is False:
                 govobj.vote_delete(terracoind)
                 return (govobj, None)
 
@@ -284,7 +277,7 @@ class Proposal(GovernanceClass, BaseModel):
     class Meta:
         db_table = 'proposals'
 
-    def is_valid(self):
+    def is_valid(self, terracoind):
         import terracoinlib
 
         printdbg("In Proposal#is_valid, for Proposal: %s" % self.__dict__)
@@ -394,7 +387,7 @@ class Proposal(GovernanceClass, BaseModel):
         ranked = []
         for proposal in query:
             proposal.max_budget = next_superblock_max_budget
-            if proposal.is_valid():
+            if proposal.is_valid(''):
                 ranked.append(proposal)
 
         return ranked
@@ -457,7 +450,7 @@ class Superblock(BaseModel, GovernanceClass):
     class Meta:
         db_table = 'superblocks'
 
-    def is_valid(self):
+    def is_valid(self, terracoind):
         import terracoinlib
         import decimal
 

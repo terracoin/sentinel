@@ -27,7 +27,7 @@ class GovernanceClass(object):
         return self.go.voted_on(**kwargs)
 
     def vote_validity(self, terracoind):
-        if self.is_valid():
+        if self.is_valid(terracoind):
             printdbg("Voting valid! %s: %d" % (self.__class__.__name__, self.id))
             self.vote(terracoind, models.VoteSignals.valid, models.VoteOutcomes.yes)
         else:
