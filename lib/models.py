@@ -145,7 +145,6 @@ class GovernanceObject(BaseModel):
         try:
             newdikt = subdikt.copy()
             newdikt['object_hash'] = object_hash
-            obj_is_invalid = False
             if subclass(**newdikt).is_valid(terracoind) is False:
                 govobj.vote_delete(terracoind)
                 return (govobj, None)
