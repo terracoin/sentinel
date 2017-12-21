@@ -11,6 +11,7 @@ default_sentinel_config = os.path.normpath(
 sentinel_config_file = os.environ.get('SENTINEL_CONFIG', default_sentinel_config)
 sentinel_cfg = TerracoinConfig.tokenize(sentinel_config_file)
 sentinel_version = "1.1.0"
+min_terracoind_proto_version_with_sentinel_ping = 70208
 
 
 def get_terracoin_conf():

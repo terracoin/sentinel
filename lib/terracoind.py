@@ -241,7 +241,8 @@ class TerracoinDaemon():
 
     @property
     def has_sentinel_ping(self):
-        return False
+        getinfo = self.rpc_command('getnetworkinfo')
+        return (getinfo['protocolversion'] >= config.min_terracoind_proto_version_with_sentinel_ping)
 
     def ping(self):
         self.rpc_command('sentinelping', config.sentinel_version)
