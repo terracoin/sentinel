@@ -86,7 +86,7 @@ class GovernanceObject(BaseModel):
             printdbg("Got an error while purging: %s" % e)
 
         for item in golist.values():
-	    try:
+            try:
                 (go, subobj) = self.import_gobject_from_terracoind(terracoind, item)
             except Exception as e:
                 printdbg("Got an error upon import: %s" % e)
