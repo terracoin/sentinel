@@ -22,7 +22,7 @@ def test_terracoind():
         if line.startswith('testnet=1'):
             network = 'testnet'
             is_testnet = True
-            genesis_hash = u'00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c'
+            genesis_hash = u'00000000a48f093611895d7452e456b646d213d238e86dc2c0db7d15fe6c555d'
 
     creds = TerracoinConfig.get_rpc_creds(config_text, network)
     terracoind = TerracoinDaemon(**creds)
@@ -30,7 +30,7 @@ def test_terracoind():
 
     assert hasattr(terracoind, 'rpc_connection')
 
-    # Terracoin testnet block 0 hash == 00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c
+    # Terracoin testnet block 0 hash == 00000000a48f093611895d7452e456b646d213d238e86dc2c0db7d15fe6c555d
     # test commands without arguments
     info = terracoind.rpc_command('getinfo')
     info_keys = [
