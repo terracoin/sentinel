@@ -238,6 +238,6 @@ def test_deterministic_superblock_selection(go_list_superblocks):
         (go, subobj) = GovernanceObject.import_gobject_from_terracoind(terracoind, item)
 
     # highest hash wins if same -- so just order by hash
-    sb = Superblock.find_highest_deterministic('22a5f429c5ffb2b79b1b30c3ac30751284e3efa4e710bc7fd35fbe7456b1e485')
+    sb = Superblock.find_highest_deterministic('d663b0e76cc87882ff4a6d17d7d302b9145c263eb970e0e5c6b3acd42b570347')
 
     assert sb.object_hash == 'bc2834f357da7504138566727c838e6ada74d079e63b6104701f4f8eb05dae36'
