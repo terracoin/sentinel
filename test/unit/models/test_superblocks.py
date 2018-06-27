@@ -129,62 +129,62 @@ def test_superblock_is_valid(superblock):
     orig = Superblock(**superblock.get_dict())  # make a copy
 
     # original as-is should be valid
-    assert orig.is_valid() is True
+    assert orig.is_valid(terracoind) is True
 
     # mess with payment amounts
     superblock.payment_amounts = '7|yyzx'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     superblock.payment_amounts = '7,|yzx'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     # reset
     superblock = Superblock(**orig.get_dict())
-    assert superblock.is_valid() is True
+    assert superblock.is_valid(terracoind) is True
 
     # mess with payment addresses
     superblock.payment_addresses = 'mocfCW5mUWLdcqphNxbcsVKjzqTgdKckW6|1234 Anywhere ST, Chicago, USA'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     # single payment addr/amt is ok
     superblock.payment_addresses = 'mocfCW5mUWLdcqphNxbcsVKjzqTgdKckW6'
     superblock.payment_amounts = '5.00'
-    assert superblock.is_valid() is True
+    assert superblock.is_valid(terracoind) is True
 
     # ensure number of payment addresses matches number of payments
     superblock.payment_addresses = 'mocfCW5mUWLdcqphNxbcsVKjzqTgdKckW6'
     superblock.payment_amounts = '37.00|23.24'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     superblock.payment_addresses = 'mtHjXMx6dvTwgcvkDvsuWftiyNPi26RqDq|mocfCW5mUWLdcqphNxbcsVKjzqTgdKckW6'
     superblock.payment_amounts = '37.00'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     # ensure amounts greater than zero
     superblock.payment_addresses = 'mocfCW5mUWLdcqphNxbcsVKjzqTgdKckW6'
     superblock.payment_amounts = '-37.00'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     # reset
     superblock = Superblock(**orig.get_dict())
-    assert superblock.is_valid() is True
+    assert superblock.is_valid(terracoind) is True
 
     # mess with proposal hashes
     superblock.proposal_hashes = '7|yyzx'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     superblock.proposal_hashes = '7,|yyzx'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     superblock.proposal_hashes = '0|1'
-    assert superblock.is_valid() is False
+    assert superblock.is_valid(terracoind) is False
 
     superblock.proposal_hashes = '0000000000000000000000000000000000000000000000000000000000000000|1111111111111111111111111111111111111111111111111111111111111111'
-    assert superblock.is_valid() is True
+    assert superblock.is_valid(terracoind) is True
 
     # reset
     superblock = Superblock(**orig.get_dict())
-    assert superblock.is_valid() is True
+    assert superblock.is_valid(terracoind) is True
 
 
 def test_superblock_is_deletable(superblock):
