@@ -227,7 +227,7 @@ def test_deterministic_superblock_creation(go_list_proposals):
     assert sb.payment_amounts == '25.75000000|32.01000000'
     assert sb.proposal_hashes == 'dfd7d63979c0b62456b63d5fc5306dbec451180adee85876cbf5b28c69d1a86c|0523445762025b2e01a2cd34f1d10f4816cf26ee1796167e5b029901e5873630'
 
-    assert sb.hex_hash() == '5534e9fa4a51423820b9e19fa6d4770c12ea0a5663e8adff8223f5e8b6df641c'
+    assert sb.hex_hash() == 'b88f34fafc02f604c59b7714d6446d893d0f83faeb45831513177b3da9335ad7'
 
 
 def test_deterministic_superblock_selection(go_list_superblocks):
