@@ -4,11 +4,11 @@ An all-powerful toolset for Terracoin.
 
 [![Build Status](https://travis-ci.org/terracoin/sentinel.svg?branch=master)](https://travis-ci.org/terracoin/sentinel)
 
-Sentinel is an autonomous agent for persisting, processing and automating Terracoin V12.1.5 governance objects and tasks.
+Sentinel is an autonomous agent for persisting, processing and automating Terracoin V12.1.8 governance objects and tasks.
 
-Sentinel is implemented as a Python application that binds to a local version 12.1.5 terracoind instance on each Terracoin V12.1.5 Masternode.
+Sentinel is implemented as a Python application that binds to a local version 12.1.8 terracoind instance on each Terracoin V12.1.8 Masternode.
 
-This guide covers installing Sentinel onto an existing 12.1.5 Terracoin masternode in Ubuntu 14.04 / 16.04.
+This guide covers installing Sentinel onto an existing 12.1.8 Terracoin masternode in Ubuntu 14.04 / 16.04.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Update system packages and ensure virtualenv and git are installed:
     sudo apt-get update
     sudo apt-get -y install python-virtualenv git
 
-Make sure the local Terracoin daemon running is at least version 12.1.5 (120105)
+Make sure the local Terracoin daemon running is at least version 12.1.8 (120108)
 
     ./terracoin-cli getinfo | grep version
 
